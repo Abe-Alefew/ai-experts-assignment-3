@@ -1,64 +1,55 @@
-# AI Experts Assignment (Python)
+## Run Tests
 
-This assignment evaluates your ability to:
+### Locally
 
-- set up a small Python project to run reliably (locally + in Docker),
-- pin dependencies for reproducible installs,
-- write focused tests to reproduce a bug,
-- implement a minimal, reviewable fix.
+1. Create a virtual environment in the current directory
 
-## What you will do
+```bash
+python3 -m venv venv
 
-### 1) Dockerfile (required)
+```
 
-Create a `Dockerfile` so the project can run the test suite in a non-interactive, CI-style environment.
+2. Activate the virtual environment
 
-Requirements:
+** Git Bash **
 
-- requirements.txt exists and is used during build (pip install -r requirements.txt)
-- pytest must be included/pinned in requirements.txt
-- The image must run tests by default (use: `CMD ["python", "-m", "pytest", "-v"]`).
-- The build must install dependencies from `requirements.txt`.
+```bash
+source venv/bin/activate
 
-### 2) requirements.txt (required)
+```
 
-Create a `requirements.txt` with pinned versions, using this format:
+** Command Prompt **
 
-- `package==x.y.z`
+```bash
+venv/Scripts/activate
 
-### 3) README updates (required)
+```
 
-Update this README to include:
+3. Install dependicies from requirements.txt
 
-- how to run the tests locally,
-- how to build and run tests with Docker.
+```bash
+pip install -r requirements.txt
 
-### 4) Find + fix a bug (required)
+``` 
+4. Run tests
 
-There is a bug somewhere in this repository.
+```bash
+pytest -v   
 
-Your tasks:
+```
 
-- Identify the bug.
-- Apply the smallest possible fix to make the tests pass.
-- Keep the change minimal and reviewable (no refactors).
+## Docker
 
-## Constraints
+1. Build the image
 
-- Keep changes minimal and reviewable.
-- Do not refactor unrelated code.
-- Do not introduce extra tooling unless required.
-- You may add tests and the smallest code change needed to fix the bug.
+```bash
+docker build -t ai-experts-3 .
 
-### 5) EXPLANATION.md (required)
+```
 
-Create `EXPLANATION.md` (max 250 words) containing:
+2. Run the container
 
-- **What was the bug?**
-- **Why did it happen?**
-- **Why does your fix solve it?**
-- **One realistic case / edge case your tests still don’t cover**
+```bash
+docker run -rm ai-experts-3
 
-## Submission
-
-- Submit a public GitHub repository URL containing your solution to the Google form link provided.
+```
