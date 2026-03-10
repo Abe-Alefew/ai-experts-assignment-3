@@ -43,3 +43,13 @@ def test_api_request_refreshes_when_token_is_dict():
     resp = c.request("GET", "/me", api=True)
 
     assert resp["headers"].get("Authorization") == "Bearer fresh-token"
+
+# a dict token with a future expires_at should still be refreshed, since the code only checks for OAuth2Token instances
+def test_api_request_refreshes_even_when_dict_token_looks_valid():
+    c = Client()
+    c.oauth2_token = {"access_token": "hidden-key", "expires_at": 10**10}
+
+    resp = c.request("GET", "/me", api=True)
+
+    # Original code skipped refresh for truthy dicts, leaving Authorization unset
+    assert resp["headers"]["Authorization"] == "Bearer fresh-token"
