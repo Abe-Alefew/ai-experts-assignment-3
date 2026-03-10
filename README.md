@@ -50,6 +50,6 @@ docker build -t ai-experts-3 .
 2. Run the container
 
 ```bash
-docker run -rm ai-experts-3
+docker run --rm ai-experts-3
 
 ```
