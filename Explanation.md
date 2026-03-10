@@ -1,4 +1,5 @@
 ## Bug Identification and Fix
+
 ### 1. What was the bug?
 
 The bug is found in the lines 31-34 of http_client.py file, where the refresh-guard condition found. The Client request method failed to attach the authorization header when the oauth2_token provided as a plain dict instead of an OAuth2Token instance.
