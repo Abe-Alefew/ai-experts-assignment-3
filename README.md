@@ -11,17 +11,24 @@ python3 -m venv venv
 
 2. Activate the virtual environment
 
-** Git Bash **
+**Git Bash(Windows)**
+
+```bash
+source venv/Scripts/activate
+
+```
+
+**Linux/macOS**
 
 ```bash
 source venv/bin/activate
 
 ```
 
-** Command Prompt **
+**Command Prompt**
 
 ```bash
-venv/Scripts/activate
+venv\Scripts\activate.bat
 
 ```
 
