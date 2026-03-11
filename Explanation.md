@@ -14,4 +14,4 @@ because the logical expression covers every cases of self.oauth2_token state. Th
 
 ### 4.What's one realistic case / edge case your tests still don't cover?
 
-the uncovered edge case is a token-expiry timing problem. The token passes the expired check, the header is set, but by the time the actual request is made, the token has already expired server-side, resulting in a 401 unauthorized. The solution for this will be including an "expiry buffer" ( like refreshing 30 seconds before an actual expiry)
+The uncovered edge case is a token-expiry timing problem. The token passes the expired check, the header is set, but by the time the actual request is made, the token has already expired server-side, resulting in a 401 unauthorized. The solution for this will be including an "expiry buffer" ( like refreshing 30 seconds before an actual expiry)
